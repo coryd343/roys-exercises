@@ -22,6 +22,19 @@ export function getRandomInt(max) {
     return Math.ceil(Math.random() * max);
 }
 
+/**
+ * Returns an array of random integers with length equal to the given length parameters
+ * @param {number} length length of the array
+ * @param {number} maxVal maximum value for any given element of the array
+ */
+export function getRandomIntArray(length, maxVal) {
+    let array = [];
+    for (let i = 0; i < length; i++) {
+        array.push(getRandomInt(maxVal));
+    }
+    return array;
+}
+
 export function getRandomCat() {
     const names = ['Fluffy', 'Mr. Bojangles', 'SerialKiller', 'Numpty', 'Margaret Thatcher'];
     const age = getRandomInt(30);
