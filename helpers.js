@@ -51,9 +51,10 @@ export function getRandomCatArray(arrayLength) {
     return catArray;
 }
 
-export function swap(array, indexOne, indexTwo) {
-    const placeHolder = array[indexOne];
+export function swap(theArray, indexOne, indexTwo) {
+    console.log(`Swapping ${indexOne} with ${indexTwo}`);
+    const placeHolder = theArray[indexOne];
     theArray[indexOne] = theArray[indexTwo];
     theArray[indexTwo] = placeHolder;
-    return array;
+    return theArray;
 }
