@@ -26,11 +26,29 @@ export function test() {
 
 function sortIntArray(intArray) {
     //Insertion Sort Algorithm:
+    let iterations = 0;
     //Create an outer loop that loops from the second element to the end of the array (the first element is considered sorted)
+    for (let i = 1; i < intArray.length; i++) {
         //Create an inner loop which loops backward from the index of the outer loop until the first element of the array
+        // for (let j = i; j >= 0; j--) {
+        let j = i - 1;
+        while (j >= 0) {
+            //log(intArray[j]);
             //If the element at the index of the inner loop is greater than the one to its right, swap them
+            if (intArray[j] > intArray[j + 1]) {
+                log(`SWAPPING ${intArray[j]} AND ${intArray[j + 1]}`);
+                swap(intArray, j, j + 1);
+            }
             //Otherwise, break the inner loop
-
+            else {
+                break;
+            }
+            j--;
+            iterations++;
+        }
+        log("OUTER LOOP FINISHED");
+    }
+    log(`ITERATION COUNT: ${iterations}`);
     return intArray;
 }
 
