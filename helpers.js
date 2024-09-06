@@ -52,9 +52,62 @@ export function getRandomCatArray(arrayLength) {
 }
 
 export function swap(theArray, indexOne, indexTwo) {
-    console.log(`Swapping ${indexOne} with ${indexTwo}`);
     const placeHolder = theArray[indexOne];
     theArray[indexOne] = theArray[indexTwo];
     theArray[indexTwo] = placeHolder;
     return theArray;
+}
+
+/**
+ * Finds and returns the index where a given "pivot point" (in this case, the last element) should
+ * belong, where all elements before it are < the value of the pivot and all elements after it are
+ * greater than it. Moves this pivot point to this location.
+ * @param {Array} theArray 
+ * @param {number} start 
+ * @param {number} end 
+ * @returns 
+ */
+export function findPartitionPosition(theArray, start, end) {
+    let pivot = theArray[end];
+    let i = start - 1;
+    for (let j = start; j < end; j++) {
+        if (theArray[j] < pivot) {
+            i++;
+            swap(theArray, i, j);
+        }
+    }
+    i++
+    swap(theArray, i, end);
+    // log(`Pivot ${pivot} belongs at index ${i}`);
+    return i;
+}
+
+/**
+ * Executes the given sorting function on the given data array and returns the time to complete the operation in milliseconds.
+ * @param {Array} theArray 
+ * @param {function} sortFunc 
+ * @returns 
+ */
+export function sortAndTime(theArray, sortFunc) {
+    const startTime = Date.now();
+    sortFunc(theArray);
+    const diff = Date.now() - startTime;
+    // log (diff);
+    return diff;
+}
+
+export function getAverageExecutionTime(dataset, sortFunc, times) {
+    if (times < 1) {
+        log(`Invalid times: ${times}`)
+        return 0;
+    }
+    let totalTime = 0;
+    for (let i = 0; i < times; i ++) {
+        totalTime += sortAndTime(dataset, sortFunc);
+    }
+
+    if (totalTime < 1)
+        return 0;
+
+    return totalTime / times;
 }
