@@ -108,3 +108,10 @@ function sortCatsByAgeBubble(catArray) {
 //     log(`ITERATION COUNT: ${iterations}`);
 //     return intArray;
 // }
+
+function mergeSort(intArray) {
+    //Base case: Where we STOP (If array is only 1 element long)
+    
+
+    //Otherwise, recurse
+}
