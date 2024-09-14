@@ -40,7 +40,7 @@ export function getRandomCat() {
     const age = getRandomInt(30);
     const breeds = ['Russian Blue', 'Mexican Green', 'Canadian Dry', 'Burnt Umber', 'Pumpkin Spice'];
 
-    return createCat(names[getRandomInt(names.length - 1)], age, breeds[getRandomInt(breeds.length - 1)]);
+    return createCat(names[getRandomInt(names.length - 1)], breeds[getRandomInt(breeds.length - 1)], age);
 }
 
 export function getRandomCatArray(arrayLength) {
